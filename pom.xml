@@ -64,6 +64,36 @@
               		  <warName>ROOT</warName>
                 </configuration>
             </plugin>
+            <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-war-plugin</artifactId>
+                        <version>${version.war.maven.plugin}</version>
+                        <configuration>
+                            <failOnMissingWebXml>false</failOnMissingWebXml>
+                            <webResources>
+                                <resource>
+                                    <directory>${basedir}/config</directory>
+                                    <includes>
+                                        <include>keycloak.json</include>
+                                    </includes>
+                                    <targetPath>WEB-INF</targetPath>
+                                </resource>
+                            </webResources>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-enforcer-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>enforce-quickstart-realm-file-exist</id>
+                                <phase>validate</phase>
+                            </execution>
+                            <execution>
+                                <id>enforce-keycloak-file-exist</id>
+                                <phase>validate</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
         </plugins>
       </build>
     </profile>
