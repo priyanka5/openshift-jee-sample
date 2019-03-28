@@ -72,7 +72,7 @@
                             <failOnMissingWebXml>false</failOnMissingWebXml>
                             <webResources>
                                 <resource>
-                                    <directory>${basedir}/config</directory>
+                                    <directory>${basedir}/</directory>
                                     <includes>
                                         <include>keycloak.json</include>
                                     </includes>
